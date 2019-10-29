@@ -1,0 +1,10 @@
+{
+  "name": "library-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alex Demchenko <alexdemchenko@yahoo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  }
+}
