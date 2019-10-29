@@ -16,7 +16,15 @@
     "prepare": "yarn run compile"
   },
   "devDependencies": {
+    "@types/react": "^16.9.11",
+    "@types/react-native": "^0.60.22",
     "gts": "^1.1.0",
+    "react": "^16.11.0",
+    "react-native": "^0.61.3",
     "typescript": "^3.6.4"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   }
 }
