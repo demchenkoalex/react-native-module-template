@@ -1,14 +1,19 @@
 {
   "name": "library-template",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Alex Demchenko <alexdemchenko@yahoo.com>",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
-    "fix": "gts fix"
+    "fix": "gts fix",
+    "prepare": "yarn run compile"
   },
   "devDependencies": {
     "gts": "^1.1.0",
