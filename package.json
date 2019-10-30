@@ -13,18 +13,38 @@
     "clean": "gts clean",
     "compile": "tsc -p .",
     "fix": "gts fix",
-    "prepare": "yarn run compile"
+    "prepare": "yarn run compile",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/runtime": "^7.6.3",
+    "@types/jest": "^24.0.21",
     "@types/react": "^16.9.11",
     "@types/react-native": "^0.60.22",
+    "@types/react-test-renderer": "^16.9.1",
+    "babel-jest": "^24.9.0",
     "gts": "^1.1.0",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.3",
     "react": "^16.11.0",
     "react-native": "^0.61.3",
+    "react-test-renderer": "^16.11.0",
     "typescript": "^3.6.4"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }

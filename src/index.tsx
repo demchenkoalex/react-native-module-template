@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { Button, Text, View } from 'react-native'
 
+export const addOne = (input: number) => input + 1
+
 const Counter = () => {
   const [count, setCount] = React.useState(0)
 
@@ -14,7 +16,7 @@ const Counter = () => {
       }}
     >
       <Text>You pressed {count} times</Text>
-      <Button onPress={() => setCount(count + 1)} title='Press Me'></Button>
+      <Button onPress={() => setCount(addOne(count))} title='Press Me'></Button>
     </View>
   )
 }
