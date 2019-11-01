@@ -1,6 +1,8 @@
 {
   "name": "library-template",
   "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/demchenkoalex/library-template#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Alex Demchenko <alexdemchenko@yahoo.com>",
