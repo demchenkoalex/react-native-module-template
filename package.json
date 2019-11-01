@@ -1,7 +1,7 @@
 {
   "name": "library-template",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.2",
+  "description": "Library Template",
   "homepage": "https://github.com/demchenkoalex/library-template#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,8 @@
   "license": "MIT",
   "files": [
     "ios",
-    "lib"
+    "lib",
+    "library-template.podspec"
   ],
   "scripts": {
     "check": "gts check",
