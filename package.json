@@ -6,6 +6,7 @@
   "author": "Alex Demchenko <alexdemchenko@yahoo.com>",
   "license": "MIT",
   "files": [
+    "ios",
     "lib"
   ],
   "scripts": {

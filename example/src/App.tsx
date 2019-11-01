@@ -1,7 +1,11 @@
-import Counter from 'library-template'
-import React from 'react'
+import LibraryTemplate, { Counter } from 'library-template'
+import React, { useEffect } from 'react'
 
 const App = () => {
+  useEffect(() => {
+    console.log(LibraryTemplate)
+  })
+
   return <Counter />
 }
 
