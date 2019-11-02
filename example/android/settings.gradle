@@ -1,8 +1,8 @@
 rootProject.name = 'example'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 
-include ':library-template'
-project(':library-template').projectDir = new File(rootProject.projectDir, '../../android')
+include ':react-native-module-template'
+project(':react-native-module-template').projectDir = new File(rootProject.projectDir, '../../android')
 
 include ':app'
 

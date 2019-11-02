@@ -1,14 +1,14 @@
 //
-//  LibraryTemplate.m
-//  LibraryTemplate
+//  RNModuleTemplate.m
+//  RNModuleTemplate
 //
 //  Created by Alex Demchenko on 01/11/2019.
 //  Copyright © 2019 Alex Demchenko. All rights reserved.
 //
 
-#import "LibraryTemplate.h"
+#import "RNModuleTemplate.h"
 
-@implementation LibraryTemplate
+@implementation RNModuleTemplate
 
 RCT_EXPORT_MODULE();
 

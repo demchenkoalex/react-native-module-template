@@ -23,4 +23,4 @@ const Counter = () => {
 
 export { addOne, Counter }
 
-export default NativeModules.LibraryTemplate
+export default NativeModules.RNModuleTemplate

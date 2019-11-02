@@ -1,9 +1,9 @@
-import LibraryTemplate, { Counter } from 'library-template'
 import React, { useEffect } from 'react'
+import RNModuleTemplate, { Counter } from 'react-native-module-template'
 
 const App = () => {
   useEffect(() => {
-    console.log(LibraryTemplate)
+    console.log(RNModuleTemplate)
   })
 
   return <Counter />

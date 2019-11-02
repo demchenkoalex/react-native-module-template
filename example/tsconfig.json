@@ -9,7 +9,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "library-template": ["../lib"]
+      "react-native-module-template": ["../lib"]
     },
     "skipLibCheck": true
   },

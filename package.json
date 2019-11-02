@@ -1,8 +1,8 @@
 {
-  "name": "library-template",
-  "version": "1.0.6",
-  "description": "Library Template",
-  "homepage": "https://github.com/demchenkoalex/library-template#readme",
+  "name": "react-native-module-template",
+  "version": "1.0.2",
+  "description": "React Native Module Template",
+  "homepage": "https://github.com/demchenkoalex/react-native-module-template#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Alex Demchenko <alexdemchenko@yahoo.com>",
@@ -11,7 +11,7 @@
     "android",
     "ios",
     "lib",
-    "library-template.podspec"
+    "react-native-module-template.podspec"
   ],
   "scripts": {
     "check": "gts check",

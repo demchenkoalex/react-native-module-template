@@ -1,1 +1,1 @@
-# Library Template
+# React Native Module Template

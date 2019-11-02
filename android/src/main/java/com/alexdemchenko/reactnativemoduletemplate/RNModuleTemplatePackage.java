@@ -1,4 +1,4 @@
-package com.alexdemchenko.librarytemplate;
+package com.alexdemchenko.reactnativemoduletemplate;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -10,11 +10,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class LibraryTemplatePackage implements ReactPackage {
+public class RNModuleTemplatePackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new LibraryTemplateModule(reactContext));
+        return Arrays.<NativeModule>asList(new RNModuleTemplateModule(reactContext));
     }
 
     // Deprecated from RN 0.47

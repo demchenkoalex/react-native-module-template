@@ -1,4 +1,4 @@
-package com.alexdemchenko.librarytemplate;
+package com.alexdemchenko.reactnativemoduletemplate;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -6,17 +6,17 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import java.util.Map;
 import java.util.HashMap;
 
-public class LibraryTemplateModule extends ReactContextBaseJavaModule {
+public class RNModuleTemplateModule extends ReactContextBaseJavaModule {
     private static ReactApplicationContext reactContext;
 
-    LibraryTemplateModule(ReactApplicationContext context) {
+    RNModuleTemplateModule(ReactApplicationContext context) {
         super(context);
         reactContext = context;
     }
 
     @Override
     public String getName() {
-        return "LibraryTemplate";
+        return "RNModuleTemplate";
     }
 
     @Override
