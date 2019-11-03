@@ -1,6 +1,6 @@
 {
   "name": "react-native-module-template",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "React Native Module Template",
   "homepage": "https://github.com/demchenkoalex/react-native-module-template#readme",
   "main": "lib/index.js",
@@ -11,7 +11,19 @@
     "android",
     "ios",
     "lib",
-    "react-native-module-template.podspec"
+    "react-native-module-template.podspec",
+    "!.DS_Store",
+    "!.gradle",
+    "!.idea",
+    "!build",
+    "!gradle",
+    "!*.iml",
+    "!gradlew",
+    "!gradlew.bat",
+    "!local.properties",
+    "!project.xcworkspace",
+    "!xcshareddata",
+    "!xcuserdata"
   ],
   "scripts": {
     "check": "gts check",

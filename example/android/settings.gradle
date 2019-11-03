@@ -5,4 +5,3 @@ include ':react-native-module-template'
 project(':react-native-module-template').projectDir = new File(rootProject.projectDir, '../../android')
 
 include ':app'
-

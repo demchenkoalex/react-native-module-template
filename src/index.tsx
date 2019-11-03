@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Button, NativeModules, Text, View } from 'react-native'
 
-const addOne = (input: number) => input + 1
+export const addOne = (input: number) => input + 1
 
-const Counter = () => {
+export const Counter = () => {
   const [count, setCount] = React.useState(0)
 
   return (
@@ -20,7 +20,5 @@ const Counter = () => {
     </View>
   )
 }
-
-export { addOne, Counter }
 
 export default NativeModules.RNModuleTemplate
