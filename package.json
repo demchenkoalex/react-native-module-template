@@ -1,6 +1,6 @@
 {
   "name": "react-native-module-template",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React Native Module Template",
   "homepage": "https://github.com/demchenkoalex/react-native-module-template#readme",
   "main": "lib/index.js",

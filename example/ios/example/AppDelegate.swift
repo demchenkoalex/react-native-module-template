@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  example
 //
-//  Created by Alex Demchenko on 30/10/2019.
 //  Copyright © 2019 Facebook. All rights reserved.
 //
 
