@@ -5,9 +5,7 @@
 const fs = require('fs')
 const readline = require('readline')
 
-/*
-  PARAMS USED IN THE TEMPLATE PROJECT
-*/
+// Params used in the template project
 const DEFAULT_NAME = 'react-native-module-template'
 const DEFAULT_SHORT_NAME = 'RNModuleTemplate'
 const DEFAULT_URL =
@@ -17,9 +15,7 @@ const DEFAULT_GIT_URL =
 const DEFAULT_AUTHOR_NAME = 'Alex Demchenko'
 const DEFAULT_AUTHOR_EMAIL = 'alexdemchenko@yahoo.com'
 
-/*
-  LIST OF ALL QUESTIONS
-*/
+// Questions list
 const QUESTION_NAME = `Enter library name (use kebab-case) (default ${DEFAULT_NAME}): `
 const QUESTION_SHORT_NAME = `Enter library short name (used to name ObjC and Java classes, use PascalCase) (default ${DEFAULT_SHORT_NAME}): `
 const QUESTION_URL = `Enter library homepage (default ${DEFAULT_URL}): `
@@ -27,9 +23,7 @@ const QUESTION_GIT_URL = `Enter library git url (default ${DEFAULT_GIT_URL}): `
 const QUESTION_AUTHOR_NAME = `Enter author name (default ${DEFAULT_AUTHOR_NAME}): `
 const QUESTION_AUTHOR_EMAIL = `Enter author email (default ${DEFAULT_AUTHOR_EMAIL}): `
 
-/*
-  PASS `js-only` ARGUMENT TO REMOVE ALL NATIVE CODE
-*/
+// Pass `js-only` parameter to remove native code
 const jsOnly = process.argv.slice(2).includes('js-only')
 
 const rl = readline.createInterface({
@@ -38,11 +32,9 @@ const rl = readline.createInterface({
 })
 
 if (jsOnly) {
-  /*
-    JS ONLY MODE
-    REMOVE `QUESTION_SHORT_NAME` SINCE IT IS USED ONLY IN THE NATIVE CODE
-    REMOVE `QUESTION_GIT_URL` SINCE IT IS USED ONLY IN THE .PODSPEC FILE
-  */
+  // JS only mode
+  // Remove `QUESTION_SHORT_NAME` since it is used only in the native code
+  // Remove `QUESTION_GIT_URL` since in it used only in the .podspec file
   rl.question(QUESTION_NAME, name => {
     rl.question(QUESTION_URL, url => {
       rl.question(QUESTION_AUTHOR_NAME, authorName => {
@@ -61,10 +53,8 @@ if (jsOnly) {
     })
   })
 } else {
-  /*
-    NORMAL MODE
-    ALL QUESTIONS
-  */
+  // Normal mode
+  // All questions
   rl.question(QUESTION_NAME, name => {
     rl.question(QUESTION_SHORT_NAME, shortName => {
       rl.question(QUESTION_URL, url => {
@@ -101,32 +91,28 @@ const renameFiles = (
   authorEmail = DEFAULT_AUTHOR_EMAIL
 ) => {
   try {
-    /*
-      REMOVE .GIT
-    */
+    // Remove `.git` folder
     if (fs.existsSync('.git')) {
       fs.rmdirSync('.git', { recursive: true })
     }
-    /*
-      CLEAR README.MD
-    */
+
+    // Clear `README.md`
     fs.writeFileSync('README.md', '')
-    /*
-      JS ONLY MODE - REMOVE PODSPEC
-      NORMAL MODE - RENAME PODSPEC AND REPLACE GIT URL
-    */
+
     if (jsOnly) {
+      // JS only mode
+      // Remove .podspec
       fs.unlinkSync(`${DEFAULT_NAME}.podspec`)
     } else {
+      // Normal mode
+      // Rename .podspec and replace git url
       fs.renameSync(`${DEFAULT_NAME}.podspec`, `${name}.podspec`)
       const podspecData = fs.readFileSync(`${name}.podspec`).toString()
       const newPodspecData = podspecData.replace(DEFAULT_GIT_URL, gitUrl)
       fs.writeFileSync(`${name}.podspec`, newPodspecData)
     }
-    /*
-      MODIFY PACKAGE.JSON
-      JS ONLY MODE - SUPPLY ONLY LIB FOLDER IN PACKAGE.JSON
-    */
+
+    // Modify `package.json`
     const packageData = fs.readFileSync('package.json').toString()
     let newPackageData = packageData
       .replace(new RegExp(DEFAULT_NAME, 'g'), name)
@@ -136,31 +122,28 @@ const renameFiles = (
       .replace('React Native Module Template', '')
       .replace(/"version": ".+"/g, '"version": "1.0.0"')
     if (jsOnly) {
+      // JS only mode
+      // Supply only `lib` folder in `package.json`
       newPackageData = newPackageData.replace(
         /"files": \[.+\],/s,
         '"files": [\n    "lib"\n  ],'
       )
     }
     fs.writeFileSync('package.json', newPackageData)
-    /*
-      UPDATE AUTHOR IN LICENSE
-    */
+
+    // Modify author in `LICENSE`
     const licenseData = fs.readFileSync('LICENSE').toString()
     const newLicenseData = licenseData.replace(DEFAULT_AUTHOR_NAME, authorName)
     fs.writeFileSync('LICENSE', newLicenseData)
-    /*
-      UPDATE EXAMPLE TSCONFIG.JSON
-    */
+
+    // Modify example's `tsconfig.json`
     const tsConfigData = fs.readFileSync('example/tsconfig.json').toString()
     const newTsConfigData = tsConfigData.replace(DEFAULT_NAME, name)
     fs.writeFileSync('example/tsconfig.json', newTsConfigData)
-    /*
-      JS ONLY MODE
-    */
+
     if (jsOnly) {
-      /*
-        REMOVE NATIVE MODULES FROM INDEX.TSX
-      */
+      // JS only mode
+      // Remove native modules from `index.tsx`
       const indexData = fs.readFileSync('src/index.tsx').toString()
       const newIndexData = indexData
         .replace(
@@ -172,40 +155,34 @@ const renameFiles = (
         )
         .replace('NativeModules, ', '')
       fs.writeFileSync('src/index.tsx', newIndexData)
-      /*
-        REMOVE NATIVE MODULES FROM APP.TSX
-      */
+
+      // Remove native modules from `App.tsx`
       const appData = fs.readFileSync('example/src/App.tsx').toString()
       const newAppData = appData
         .replace(`${DEFAULT_SHORT_NAME}, `, '')
         .replace(DEFAULT_SHORT_NAME, "''")
         .replace(DEFAULT_NAME, name)
       fs.writeFileSync('example/src/App.tsx', newAppData)
-      /*
-        REMOVE NATIVE FOLDERS
-      */
+
+      // Remove native folders
       fs.rmdirSync('ios', { recursive: true })
       fs.rmdirSync('android', { recursive: true })
     } else {
-      /* NORMAL MODE */
-      /*
-        RENAME NATIVE MODULES IN INDEX.TSX
-      */
+      // Normal mode
+      // Rename native modules in `index.tsx`
       const indexData = fs.readFileSync('src/index.tsx').toString()
       const newIndexData = replaceDefaultShortName(indexData, shortName)
       fs.writeFileSync('src/index.tsx', newIndexData)
-      /*
-        RENAME NATIVE MODULES IN APP.TSX
-      */
+
+      // Rename native modules in `App.tsx`
       const appData = fs.readFileSync('example/src/App.tsx').toString()
       const newAppData = replaceDefaultShortName(appData, shortName).replace(
         DEFAULT_NAME,
         name
       )
       fs.writeFileSync('example/src/App.tsx', newAppData)
-      /*
-        RENAME XCSCHEME FILE
-      */
+
+      // Rename and modify .xcscheme file
       fs.renameSync(
         `ios/${DEFAULT_SHORT_NAME}.xcodeproj/xcshareddata/xcschemes/${DEFAULT_SHORT_NAME}.xcscheme`,
         `ios/${DEFAULT_SHORT_NAME}.xcodeproj/xcshareddata/xcschemes/${shortName}.xcscheme`
@@ -220,16 +197,14 @@ const renameFiles = (
         `ios/${DEFAULT_SHORT_NAME}.xcodeproj/xcshareddata/xcschemes/${shortName}.xcscheme`,
         newSchemeData
       )
-      /*
-        RENAME XCODEPROJ FOLDER
-      */
+
+      // Rename .xcodeproj folder
       fs.renameSync(
         `ios/${DEFAULT_SHORT_NAME}.xcodeproj`,
         `ios/${shortName}.xcodeproj`
       )
-      /*
-        MODIFY PROJECT.PBXPROJ
-      */
+
+      // Modify `project.pbxproj`
       const projectData = fs
         .readFileSync(`ios/${shortName}.xcodeproj/project.pbxproj`)
         .toString()
@@ -241,9 +216,8 @@ const renameFiles = (
         `ios/${shortName}.xcodeproj/project.pbxproj`,
         newProjectData
       )
-      /*
-        RENAME AND MODIFY HEADER FILE
-      */
+
+      // Rename and modify .h file
       fs.renameSync(`ios/${DEFAULT_SHORT_NAME}.h`, `ios/${shortName}.h`)
       const headerData = fs.readFileSync(`ios/${shortName}.h`).toString()
       const newHeaderData = replaceDefaultShortName(
@@ -251,9 +225,8 @@ const renameFiles = (
         shortName
       ).replace(DEFAULT_AUTHOR_NAME, authorName)
       fs.writeFileSync(`ios/${shortName}.h`, newHeaderData)
-      /*
-        RENAME AND MODIFY IMPLEMENTATION FILE
-      */
+
+      // Rename and modify .m file
       fs.renameSync(`ios/${DEFAULT_SHORT_NAME}.m`, `ios/${shortName}.m`)
       const implementationData = fs
         .readFileSync(`ios/${shortName}.m`)
@@ -263,17 +236,15 @@ const renameFiles = (
         shortName
       ).replace(DEFAULT_AUTHOR_NAME, authorName)
       fs.writeFileSync(`ios/${shortName}.m`, newImplementationData)
-      /*
-        GENERATE ANDROID PACKAGE NAME FROM AUTHOR AND MODULE NAMES
-      */
+
+      // Generate Android package name from auther and module names
       const androidPackageAuthorName = authorName
         .replace(/\s/g, '')
         .toLowerCase()
       const androidPackageModuleName = name.replace(/-/g, '').toLowerCase()
       const androidPackageName = `com.${androidPackageAuthorName}.${androidPackageModuleName}`
-      /*
-        GENERATE CURRENT ANDROID PACKAGE NAME FROM DEFAULT AUTHOR AND MODULE NAMES
-      */
+
+      // Generate current Android package name from default author and module names
       const defaultAndroidPackageAuthorName = DEFAULT_AUTHOR_NAME.replace(
         /\s/g,
         ''
@@ -283,9 +254,8 @@ const renameFiles = (
         ''
       ).toLowerCase()
       const defaultAndroidPackageName = `com.${defaultAndroidPackageAuthorName}.${defaultAndroidPackageModuleName}`
-      /*
-        RENAME PACKAGE IN ANDROID.MANIFEST
-      */
+
+      // Rename package in `AndroidManifest.xml`
       const manifestData = fs
         .readFileSync('android/src/main/AndroidManifest.xml')
         .toString()
@@ -294,9 +264,8 @@ const renameFiles = (
         androidPackageName
       )
       fs.writeFileSync('android/src/main/AndroidManifest.xml', newManifestData)
-      /*
-        RENAME PACKAGE FOLDERS
-      */
+
+      // Rename package folders
       fs.renameSync(
         `android/src/main/java/com/${defaultAndroidPackageAuthorName}`,
         `android/src/main/java/com/${androidPackageAuthorName}`
@@ -305,9 +274,8 @@ const renameFiles = (
         `android/src/main/java/com/${androidPackageAuthorName}/${defaultAndroidPackageModuleName}`,
         `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}`
       )
-      /*
-        RENAME AND MODIFY JAVA FILES
-      */
+
+      // Rename and modify Java files
       fs.renameSync(
         `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${DEFAULT_SHORT_NAME}Module.java`,
         `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Module.java`
@@ -342,9 +310,8 @@ const renameFiles = (
         `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Package.java`,
         newJavaPackageData
       )
-      /*
-        MODIFY EXAMPLE PROJECT.PBXPROJ
-      */
+
+      // Modify example's `project.pbxproj`
       const exampleProjectData = fs
         .readFileSync('example/ios/example.xcodeproj/project.pbxproj')
         .toString()
@@ -356,9 +323,8 @@ const renameFiles = (
         'example/ios/example.xcodeproj/project.pbxproj',
         newExampleProjectData
       )
-      /*
-        MODIFY SETTINGS.GRADLE
-      */
+
+      // Modify `settings.gradle`
       const settingsData = fs
         .readFileSync('example/android/settings.gradle')
         .toString()
@@ -367,9 +333,8 @@ const renameFiles = (
         name
       )
       fs.writeFileSync('example/android/settings.gradle', newSettingsData)
-      /*
-        MODIFY BUILD.GRADLE
-      */
+
+      // Modify `build.gradle`
       const buildData = fs
         .readFileSync('example/android/app/build.gradle')
         .toString()
@@ -378,15 +343,13 @@ const renameFiles = (
         name
       )
       fs.writeFileSync('example/android/app/build.gradle', newBuildData)
-      /*
-        MODIFY MAINAPPLICATION.JAVA
-      */
+
+      // Modify `MainApplication.java`
       const mainApplicationData = fs
         .readFileSync(
           'example/android/app/src/main/java/com/example/MainApplication.java'
         )
         .toString()
-
       const newMainApplicationData = replaceDefaultShortName(
         mainApplicationData,
         shortName
