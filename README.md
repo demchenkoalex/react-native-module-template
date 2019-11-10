@@ -2,7 +2,7 @@
 
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 
-A starter for the React Native library written in TypeScript, with linked example project and optional native code. This project aims to support latest React Native versions and keep best practices in mind.
+A starter for the React Native library written in TypeScript, with linked example project and optional native code. This project aims to support the latest React Native versions and keep best practices in mind.
 
 ## Alternatives
 
@@ -10,9 +10,9 @@ A starter for the React Native library written in TypeScript, with linked exampl
 
 ### Why this template?
 
-First of all it has TypeScript set up and ready. Template and example uses [gts](https://github.com/google/gts) as a formatter and linter, modified to work with React Native. If you don't happy with a code style you can always modify [prettier.config.js](prettier.config.js) and [tslint.json](tslint.json).
+First of all, it has TypeScript set up and ready. Template and example use [gts](https://github.com/google/gts) as a formatter and linter, modified to work with React Native. If you don't happy with a code style you can always modify [prettier.config.js](prettier.config.js) and [tslint.json](tslint.json).
 
-Example project is linked in a way so that you can work on your library and see results of your work immediately. If you use native code you can see linked libraries in the example project opened in Xcode or Android Studio and can modify the code directly from there, just remember to rebuild an example to see the changes. When you change TypeScript code you need to compile it first (using `yarn` command, it has `prepare` hook set up) since with npm you are supplying `lib` folder with JavaScript and type definitions, but there is an [option](#how-to-see-my-changes-immediately-in-the-example) to point example to the `src` folder instead, so that when you modify your library you see changes immediately in the example thanks to [Fast Refresh](https://facebook.github.io/react-native/docs/fast-refresh).
+The example project is linked in a way so that you can work on your library and see the results of your work immediately. If you use native code you can see linked libraries in the example project opened in Xcode or Android Studio and can modify the code directly from there, just remember to rebuild the example to see the changes. When you change TypeScript code you need to compile it first (using `yarn` command, it has `prepare` hook set up) since with npm you are supplying `lib` folder with JavaScript and type definitions, but there is an [option](#how-to-see-my-changes-immediately-in-the-example) to point example to the `src` folder instead, so that when you modify your library you see changes immediately in the example thanks to [Fast Refresh](https://facebook.github.io/react-native/docs/fast-refresh).
 
 ## Usage
 
@@ -32,11 +32,11 @@ This will invoke rename script, which removes all references to the template and
 
 ⚠️⚠️⚠️ This script is not made to be bulletproof, some assumptions are made:
 
-- Script will ask for different information (such as library name, author name, author email etc.) and there might be instructions in the parenthesis, please follow them or something will likely **fail**.
+- The script will ask for different information (such as library name, author name, author email etc.) and there might be instructions in the parenthesis, please follow them or something will likely **fail**.
 - Use `kebab-case` for the library name, _preferably_ with `react-native` prefix (e.g. `react-native-blue-button`, blue-button, button).
 - Use `PascalCase` for the library short name (in case you will have native code, with `js-only` argument script will not ask for this), it is used in native projects (RNModuleTemplate.xcodeproj, RNModuleTemplatePackage.java etc.). If you prefixed your library name with `react-native` use prefix `RN` for the short name (e.g. `RNBlueButton`, BlueButton, Button).
 - Library homepage is used only in `package.json`, if you are not sure, you can press enter to skip this step and modify this field later. Library git url is used only in `.podspec` file, same as above (note that this file will be removed if you pass `js-only` argument).
-- Please don't use any special characters in author name since it is a part of Android package name, (e.g. `com.alexdemchenko.reactnativemoduletemplate`) and used in Java and other files. Android package name is generated from author name (with removed spaces and lowercased) and from library name (with removed dashes).
+- Please don't use any special characters in author name since it is a part of Android package name, (e.g. `com.alexdemchenko.reactnativemoduletemplate`) and used in Java and other files. Android package name is generated from author name (with removed spaces and lowercased) and library name (with removed dashes).
 
 Don't forget to remove the rename script, do `yarn` to install dependencies in root and example folders, and, if you kept native code, do `pod install` in `example/ios`.
 
@@ -44,7 +44,7 @@ If you didn't use `js-only` you are good to go. If you did, you need to unlink n
 
 ### iOS
 
-Open Xcode, in the project navigator find `Libraries` folder, reveal contents using small arrow and hit `DELETE` on `RNModuleTemplate.xcodeproj`. Alternatively, open `example/ios/example.xcodeproj/project.pbxproj`, search for the `Template` (there should be number of `libRNModuleTemplate.a` and `RNModuleTemplate.xcodeproj` files) and remove all references to them. Please remove whole lines if it among files with other names or whole sections if it is the only item. Groups, like `Library` or `Products`, must stay, just remove template from appropriate children field.
+Open Xcode, in the project navigator find `Libraries` folder, reveal contents using the small arrow and hit `DELETE` on `RNModuleTemplate.xcodeproj`. Alternatively, open `example/ios/example.xcodeproj/project.pbxproj`, search for the `Template` (there should be a number of `libRNModuleTemplate.a` and `RNModuleTemplate.xcodeproj` files) and remove all references to them. Please remove whole lines if it among files with other names or whole sections if it is the only item. Groups, like `Library` or `Products`, must stay, just remove the template from appropriate children field.
 
 ### Android
 
@@ -71,11 +71,11 @@ packages.add(new RNModuleTemplatePackage());
 
 ## How example project is linked
 
-Native part is manually linked (you can see changes for Android right above), for iOS check [official docs](https://facebook.github.io/react-native/docs/linking-libraries-ios#manual-linking), but **Header Search Paths** are pointing to the `ios` folder, `$(SRCROOT)/../../ios`, not node_modules.
+The native part is manually linked (you can see changes for Android right above), for iOS check [official docs](https://facebook.github.io/react-native/docs/linking-libraries-ios#manual-linking), but **Header Search Paths** are pointing to the `ios` folder, `$(SRCROOT)/../../ios`, not node_modules.
 
 JavaScript part is using Metro Bundler configuration, see [this article](https://callstack.com/blog/adding-an-example-app-to-your-react-native-library/) for more details and final configuration [here](example/metro.config.js).
 
-In example's [tsconfig.json](example/tsconfig.json) custom path is specified, so you can import your code the same way end user will do.
+In the example's [tsconfig.json](example/tsconfig.json) custom path is specified, so you can import your code the same way end user will do.
 
 ```json
 "paths": {
@@ -85,7 +85,7 @@ In example's [tsconfig.json](example/tsconfig.json) custom path is specified, so
 
 ### How to see my changes immediately in the example
 
-In library's `package.json` change
+In the library's `package.json` change
 
 ```json
 "main": "lib/index.js",
@@ -120,6 +120,24 @@ yarn start
 ```
 
 ⚠️⚠️⚠️ Don't forget to change this back before making a release, since with npm you supply `lib` folder, not `src`. Let me know if there is a way to do this automatically.
+
+## Release
+
+Create an npm account [here](https://www.npmjs.com/signup) if you don't have one. Then do
+
+```
+npm login
+```
+
+and
+
+```
+npm publish
+```
+
+ℹ️ If you want to see what files will be included in your package before release run `npm pack`
+
+ℹ️ If you have native code in your library most of the time you will need `.java`, `.h`/`.m` files, `project.pbxproj`, `AndroidManifest.xml` and `build.gradle` aside from TypeScript code and default stuff, so keep an eye on what you are publishing, some configuration/build folders or files might sneak in. Most of them (if not all) are ignored in [package.json](package.json).
 
 ## License
 
