@@ -115,10 +115,10 @@ const renameFiles = (
     // Modify `package.json`
     const packageData = fs.readFileSync('package.json').toString()
     let newPackageData = packageData
+      .replace(DEFAULT_URL, url)
       .replace(new RegExp(DEFAULT_NAME, 'g'), name)
       .replace(DEFAULT_AUTHOR_NAME, authorName)
       .replace(DEFAULT_AUTHOR_EMAIL, authorEmail)
-      .replace(DEFAULT_URL, url)
       .replace('React Native Module Template', '')
       .replace(/"version": ".+"/g, '"version": "1.0.0"')
     if (jsOnly) {
