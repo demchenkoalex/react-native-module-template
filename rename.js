@@ -119,7 +119,7 @@ const renameFiles = (
       .replace(new RegExp(DEFAULT_NAME, 'g'), name)
       .replace(DEFAULT_AUTHOR_NAME, authorName)
       .replace(DEFAULT_AUTHOR_EMAIL, authorEmail)
-      .replace('React Native Module Template', '')
+      .replace(/"description": ".+"/g, '"description": ""')
       .replace(/"version": ".+"/g, '"version": "1.0.0"')
     if (jsOnly) {
       // JS only mode
