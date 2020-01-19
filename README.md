@@ -79,7 +79,7 @@ In the example's [tsconfig.json](example/tsconfig.json) custom path is specified
 
 ```json
 "paths": {
-  "react-native-module-template": ["../lib"]
+  "react-native-module-template": ["../src"]
 },
 ```
 
@@ -94,23 +94,7 @@ In the library's `package.json` change
 to
 
 ```json
-"main": "src/index.tsx",
-```
-
-and in the example's `tsconfig.json` change
-
-```json
-"paths": {
-  "react-native-module-template": ["../lib"]
-},
-```
-
-to
-
-```json
-"paths": {
-  "react-native-module-template": ["../src"]
-},
+"main": "src/index.tsx", // or `index.ts` if you don't have JSX there
 ```
 
 restart the bundler if you have it running

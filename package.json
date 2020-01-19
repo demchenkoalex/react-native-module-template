@@ -1,6 +1,6 @@
 {
   "name": "react-native-module-template",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A starter for the React Native library written in TypeScript, with linked example project and optional native code",
   "homepage": "https://github.com/demchenkoalex/react-native-module-template#readme",
   "main": "lib/index.js",
