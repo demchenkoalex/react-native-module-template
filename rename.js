@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 const fs = require('fs')
 const readline = require('readline')
 
@@ -125,6 +121,7 @@ const renameFiles = (
       // JS only mode
       // Supply only `lib` folder in `package.json`
       newPackageData = newPackageData.replace(
+        // eslint-disable-next-line node/no-unsupported-features/es-syntax
         /"files": \[.+\],/s,
         '"files": [\n    "lib"\n  ],'
       )

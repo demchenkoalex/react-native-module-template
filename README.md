@@ -123,6 +123,18 @@ npm publish
 
 ℹ️ If you have native code in your library most of the time you will need `.java`, `.h`/`.m` files, `project.pbxproj`, `AndroidManifest.xml` and `build.gradle` aside from TypeScript code and default stuff, so keep an eye on what you are publishing, some configuration/build folders or files might sneak in. Most of them (if not all) are ignored in [package.json](package.json).
 
+## FAQ
+
+### VSCode ESLint plugin does not lint example project
+
+By default, ESLint is configured separately for the library's source code and the example. It uses two `.eslintignore` files, the first one for the library, among others it ignores `/example` folder, and the second one for the example project. Since `/example` folder is ignored in one of these files, the plugin does not lint anything in it, see this [issue](https://github.com/microsoft/vscode-eslint/issues/111). To fix that, go to the VSCode settings and set
+
+```json
+"eslint.workingDirectories": [
+	"./example"
+]
+```
+
 ## License
 
 [MIT](LICENSE)
