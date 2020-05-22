@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  example
 //
-//  Copyright © 2019 Facebook. All rights reserved.
+//  Copyright © 2020 Facebook. All rights reserved.
 //
 
 import UIKit
