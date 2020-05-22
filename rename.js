@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const readline = require('readline')
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 // Params used in the template project
 const DEFAULT_NAME = 'react-native-module-template'
@@ -31,10 +33,10 @@ if (jsOnly) {
   // JS only mode
   // Remove `QUESTION_SHORT_NAME` since it is used only in the native code
   // Remove `QUESTION_GIT_URL` since in it used only in the .podspec file
-  rl.question(QUESTION_NAME, name => {
-    rl.question(QUESTION_URL, url => {
-      rl.question(QUESTION_AUTHOR_NAME, authorName => {
-        rl.question(QUESTION_AUTHOR_EMAIL, authorEmail => {
+  rl.question(QUESTION_NAME, (name) => {
+    rl.question(QUESTION_URL, (url) => {
+      rl.question(QUESTION_AUTHOR_NAME, (authorName) => {
+        rl.question(QUESTION_AUTHOR_EMAIL, (authorEmail) => {
           renameFiles(
             name || undefined,
             undefined,
@@ -51,12 +53,12 @@ if (jsOnly) {
 } else {
   // Normal mode
   // All questions
-  rl.question(QUESTION_NAME, name => {
-    rl.question(QUESTION_SHORT_NAME, shortName => {
-      rl.question(QUESTION_URL, url => {
-        rl.question(QUESTION_GIT_URL, gitUrl => {
-          rl.question(QUESTION_AUTHOR_NAME, authorName => {
-            rl.question(QUESTION_AUTHOR_EMAIL, authorEmail => {
+  rl.question(QUESTION_NAME, (name) => {
+    rl.question(QUESTION_SHORT_NAME, (shortName) => {
+      rl.question(QUESTION_URL, (url) => {
+        rl.question(QUESTION_GIT_URL, (gitUrl) => {
+          rl.question(QUESTION_AUTHOR_NAME, (authorName) => {
+            rl.question(QUESTION_AUTHOR_EMAIL, (authorEmail) => {
               renameFiles(
                 name || undefined,
                 shortName || undefined,
@@ -121,7 +123,6 @@ const renameFiles = (
       // JS only mode
       // Supply only `lib` folder in `package.json`
       newPackageData = newPackageData.replace(
-        // eslint-disable-next-line node/no-unsupported-features/es-syntax
         /"files": \[.+\],/s,
         '"files": [\n    "lib"\n  ],'
       )

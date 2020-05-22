@@ -1,7 +1,5 @@
 # React Native Module Template
 
-[![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
-
 A starter for the React Native library written in TypeScript, with linked example project and optional native code. This project aims to support the latest React Native versions and keep best practices in mind.
 
 ## Alternatives
