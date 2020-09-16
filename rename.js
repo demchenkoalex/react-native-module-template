@@ -274,40 +274,40 @@ const renameFiles = (
         `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}`
       )
 
-      // Rename and modify Java files
+      // Rename and modify Kotlin files
       fs.renameSync(
-        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${DEFAULT_SHORT_NAME}Module.java`,
-        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Module.java`
+        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${DEFAULT_SHORT_NAME}Module.kt`,
+        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Module.kt`
       )
-      const javaModuleData = fs
+      const kotlinModuleData = fs
         .readFileSync(
-          `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Module.java`
+          `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Module.kt`
         )
         .toString()
-      const newJavaModuleData = replaceDefaultShortName(
-        javaModuleData,
+      const newKotlinModuleData = replaceDefaultShortName(
+        kotlinModuleData,
         shortName
       ).replace(defaultAndroidPackageName, androidPackageName)
       fs.writeFileSync(
-        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Module.java`,
-        newJavaModuleData
+        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Module.kt`,
+        newKotlinModuleData
       )
       fs.renameSync(
-        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${DEFAULT_SHORT_NAME}Package.java`,
-        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Package.java`
+        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${DEFAULT_SHORT_NAME}Package.kt`,
+        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Package.kt`
       )
-      const javaPackageData = fs
+      const kotlinPackageData = fs
         .readFileSync(
-          `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Package.java`
+          `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Package.kt`
         )
         .toString()
-      const newJavaPackageData = replaceDefaultShortName(
-        javaPackageData,
+      const newKotlinPackageData = replaceDefaultShortName(
+        kotlinPackageData,
         shortName
       ).replace(defaultAndroidPackageName, androidPackageName)
       fs.writeFileSync(
-        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Package.java`,
-        newJavaPackageData
+        `android/src/main/java/com/${androidPackageAuthorName}/${androidPackageModuleName}/${shortName}Package.kt`,
+        newKotlinPackageData
       )
 
       // Modify example's `project.pbxproj`
