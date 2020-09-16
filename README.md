@@ -1,6 +1,6 @@
 # React Native Module Template
 
-A starter for the React Native library written in TypeScript, with linked example project and optional native code. This project aims to support the latest React Native versions and keep best practices in mind.
+A starter for the React Native library written in TypeScript, with linked example project and optional native code written in Swift and Kotlin. This project aims to support the latest React Native versions and keep best practices in mind.
 
 ## Alternatives
 
@@ -8,7 +8,7 @@ A starter for the React Native library written in TypeScript, with linked exampl
 
 ### Why this template?
 
-First of all, it has TypeScript set up and ready. Template and example use [gts](https://github.com/google/gts) as a formatter and linter, modified to work with React Native. If you don't happy with a code style you can always modify [prettier.config.js](prettier.config.js) and [tslint.json](tslint.json).
+First of all, it has TypeScript set up and ready. Also, if you will use a native code, this template uses Swift and Kotlin, which is much better than Objective-C and Java.
 
 The example project is linked in a way so that you can work on your library and see the results of your work immediately. If you use native code you can see linked libraries in the example project opened in Xcode or Android Studio and can modify the code directly from there, just remember to rebuild the example to see the changes. When you change TypeScript code you need to compile it first (using `yarn` command, it has `prepare` hook set up) since with npm you are supplying `lib` folder with JavaScript and type definitions, but there is an [option](#how-to-see-my-changes-immediately-in-the-example) to point example to the `src` folder instead, so that when you modify your library you see changes immediately in the example thanks to [Fast Refresh](https://facebook.github.io/react-native/docs/fast-refresh).
 
