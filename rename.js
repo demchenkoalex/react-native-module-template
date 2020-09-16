@@ -89,11 +89,6 @@ const renameFiles = (
   authorEmail = DEFAULT_AUTHOR_EMAIL
 ) => {
   try {
-    // Remove `.git` folder
-    if (fs.existsSync('.git')) {
-      fs.rmdirSync('.git', { recursive: true })
-    }
-
     // Clear `README.md`
     fs.writeFileSync('README.md', '')
 
@@ -215,14 +210,11 @@ const renameFiles = (
         newProjectData
       )
 
-      // Rename and modify .h file
-      fs.renameSync(`ios/${DEFAULT_SHORT_NAME}.h`, `ios/${shortName}.h`)
-      const headerData = fs.readFileSync(`ios/${shortName}.h`).toString()
-      const newHeaderData = replaceDefaultShortName(
-        headerData,
-        shortName
-      ).replace(DEFAULT_AUTHOR_NAME, authorName)
-      fs.writeFileSync(`ios/${shortName}.h`, newHeaderData)
+      // Rename and modify bridging header .h file
+      fs.renameSync(
+        `ios/${DEFAULT_SHORT_NAME}-Bridging-Header.h`,
+        `ios/${shortName}-Bridging-Header.h`
+      )
 
       // Rename and modify .m file
       fs.renameSync(`ios/${DEFAULT_SHORT_NAME}.m`, `ios/${shortName}.m`)
@@ -234,6 +226,15 @@ const renameFiles = (
         shortName
       ).replace(DEFAULT_AUTHOR_NAME, authorName)
       fs.writeFileSync(`ios/${shortName}.m`, newImplementationData)
+
+      // Rename and modify .swift file
+      fs.renameSync(`ios/${DEFAULT_SHORT_NAME}.swift`, `ios/${shortName}.swift`)
+      const swiftData = fs.readFileSync(`ios/${shortName}.swift`).toString()
+      const newSwiftData = replaceDefaultShortName(
+        swiftData,
+        shortName
+      ).replace(DEFAULT_AUTHOR_NAME, authorName)
+      fs.writeFileSync(`ios/${shortName}.swift`, newSwiftData)
 
       // Generate Android package name from auther and module names
       const androidPackageAuthorName = authorName

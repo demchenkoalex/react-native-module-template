@@ -26,7 +26,7 @@ or if you want to **remove native code**
 node rename.js js-only
 ```
 
-This will invoke rename script, which removes all references to the template and makes some cleanup. It also removes `.git` folder.
+This will invoke rename script, which removes all references to the template and makes some cleanup.
 
 ⚠️⚠️⚠️ This script is not made to be bulletproof, some assumptions are made:
 
