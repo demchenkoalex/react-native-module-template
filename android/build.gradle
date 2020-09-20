@@ -1,44 +1,44 @@
 buildscript {
-  ext.safeExtGet = {prop, fallback ->
-    return rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-  }
+    ext.safeExtGet = { prop, fallback ->
+        return rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
 
-  repositories {
-    google()
-    jcenter()
-  }
+    repositories {
+        google()
+        jcenter()
+    }
 
-  dependencies {
-    classpath 'com.android.tools.build:gradle:4.0.1'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${safeExtGet('kotlinVersion', '1.4.10')}"
-  }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${safeExtGet('kotlinVersion', '1.4.10')}"
+    }
 }
 
 def safeExtGet(prop, fallback) {
-  rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', 29)
-  buildToolsVersion safeExtGet('buildToolsVersion', '29.0.3')
+    compileSdkVersion safeExtGet('compileSdkVersion', 29)
+    buildToolsVersion safeExtGet('buildToolsVersion', '29.0.3')
 
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', 16)
-    targetSdkVersion safeExtGet('targetSdkVersion', 29)
-  }
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 29)
+    }
 }
 
 repositories {
-  google()
-  jcenter()
-  mavenCentral()
+    google()
+    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib:${safeExtGet('kotlinVersion', '1.4.10')}"
-  //noinspection GradleDynamicVersion
-  implementation 'com.facebook.react:react-native:+'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${safeExtGet('kotlinVersion', '1.4.10')}"
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'
 }

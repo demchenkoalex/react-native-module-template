@@ -15,7 +15,7 @@ const DEFAULT_AUTHOR_EMAIL = 'alexdemchenko@yahoo.com'
 
 // Questions list
 const QUESTION_NAME = `Enter library name (use kebab-case) (default ${DEFAULT_NAME}): `
-const QUESTION_SHORT_NAME = `Enter library short name (used to name ObjC and Java classes, use PascalCase) (default ${DEFAULT_SHORT_NAME}): `
+const QUESTION_SHORT_NAME = `Enter library short name (used to name Swift and Kotlin classes, use PascalCase) (default ${DEFAULT_SHORT_NAME}): `
 const QUESTION_URL = `Enter library homepage (default ${DEFAULT_URL}): `
 const QUESTION_GIT_URL = `Enter library git url (default ${DEFAULT_GIT_URL}): `
 const QUESTION_AUTHOR_NAME = `Enter author name (default ${DEFAULT_AUTHOR_NAME}): `
@@ -343,10 +343,10 @@ const renameFiles = (
       )
       fs.writeFileSync('example/android/app/build.gradle', newBuildData)
 
-      // Modify `MainApplication.java`
+      // Modify `MainApplication.kt`
       const mainApplicationData = fs
         .readFileSync(
-          'example/android/app/src/main/java/com/example/MainApplication.java'
+          'example/android/app/src/main/java/com/example/MainApplication.kt'
         )
         .toString()
       const newMainApplicationData = replaceDefaultShortName(
@@ -354,7 +354,7 @@ const renameFiles = (
         shortName
       ).replace(defaultAndroidPackageName, androidPackageName)
       fs.writeFileSync(
-        'example/android/app/src/main/java/com/example/MainApplication.java',
+        'example/android/app/src/main/java/com/example/MainApplication.kt',
         newMainApplicationData
       )
     }
