@@ -9,8 +9,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${safeExtGet('kotlinVersion', '1.4.10')}"
+        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${safeExtGet('kotlinVersion', '1.4.21')}"
     }
 }
 
@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${safeExtGet('kotlinVersion', '1.4.10')}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${safeExtGet('kotlinVersion', '1.4.21')}"
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'
 }
