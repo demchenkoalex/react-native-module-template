@@ -32,9 +32,9 @@ This will invoke rename script, which removes all references to the template and
 
 - The script will ask for different information (such as library name, author name, author email etc.) and there might be instructions in the parenthesis, please follow them or something will likely **fail**.
 - Use `kebab-case` for the library name, _preferably_ with `react-native` prefix (e.g. `react-native-blue-button`, blue-button, button).
-- Use `PascalCase` for the library short name (in case you will have native code, with `js-only` argument script will not ask for this), it is used in native projects (RNModuleTemplate.xcodeproj, RNModuleTemplatePackage.java etc.). If you prefixed your library name with `react-native` use prefix `RN` for the short name (e.g. `RNBlueButton`, BlueButton, Button).
+- Use `PascalCase` for the library short name (in case you will have native code, with `js-only` argument script will not ask for this), it is used in native projects (RNModuleTemplate.xcodeproj, RNModuleTemplatePackage.kt etc.). If you prefixed your library name with `react-native` use prefix `RN` for the short name (e.g. `RNBlueButton`, BlueButton, Button).
 - Library homepage is used only in `package.json`, if you are not sure, you can press enter to skip this step and modify this field later. Library git url is used only in `.podspec` file, same as above (note that this file will be removed if you pass `js-only` argument).
-- Please don't use any special characters in author name since it is a part of Android package name, (e.g. `com.alexdemchenko.reactnativemoduletemplate`) and used in Java and other files. Android package name is generated from author name (with removed spaces and lowercased) and library name (with removed dashes).
+- Please don't use any special characters in author name since it is a part of Android package name, (e.g. `com.alexdemchenko.reactnativemoduletemplate`) and used in Kotlin and other files. Android package name is generated from author name (with removed spaces and lowercased) and library name (with removed dashes).
 
 Don't forget to remove the rename script, do `yarn` to install dependencies in root and example folders, and, if you kept native code, do `pod install` in `example/ios`.
 
@@ -61,7 +61,7 @@ implementation project(':react-native-module-template')
 
 In `example/android/app/src/main/java/com/example/MainApplication.kt` remove
 
-```java
+```kotlin
 import com.alexdemchenko.reactnativemoduletemplate.RNModuleTemplatePackage
 
 packages.add(RNModuleTemplatePackage())
@@ -119,7 +119,7 @@ npm publish
 
 ℹ️ If you want to see what files will be included in your package before release run `npm pack`
 
-ℹ️ If you have native code in your library most of the time you will need `.java`, `.h`/`.m` files, `project.pbxproj`, `AndroidManifest.xml` and `build.gradle` aside from TypeScript code and default stuff, so keep an eye on what you are publishing, some configuration/build folders or files might sneak in. Most of them (if not all) are ignored in [package.json](package.json).
+ℹ️ If you have native code in your library most of the time you will need `.kt`, `.swift` files, `project.pbxproj`, `AndroidManifest.xml` and `build.gradle` aside from TypeScript code and default stuff, so keep an eye on what you are publishing, some configuration/build folders or files might sneak in. Most of them (if not all) are ignored in [package.json](package.json).
 
 ## FAQ
 

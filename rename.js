@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const readline = require('readline')
-/* eslint-enable @typescript-eslint/no-var-requires */
 
 // Params used in the template project
 const DEFAULT_NAME = 'react-native-module-template'

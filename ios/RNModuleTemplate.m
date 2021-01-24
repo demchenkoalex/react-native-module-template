@@ -2,7 +2,7 @@
 //  RNModuleTemplate.m
 //  RNModuleTemplate
 //
-//  Copyright © 2020 Alex Demchenko. All rights reserved.
+//  Copyright © 2021 Alex Demchenko. All rights reserved.
 //
 
 #import <React/RCTBridgeModule.h>
