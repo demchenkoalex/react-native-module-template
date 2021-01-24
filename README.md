@@ -59,12 +59,13 @@ In `example/android/app/build.gradle` remove
 implementation project(':react-native-module-template')
 ```
 
-In `example/android/app/src/main/java/com/example/MainApplication.java` remove
+In `example/android/app/src/main/java/com/example/MainApplication.kt` remove
 
 ```java
-import com.alexdemchenko.reactnativemoduletemplate.RNModuleTemplatePackage;
-
-packages.add(new RNModuleTemplatePackage());
+import com.alexdemchenko.reactnativemoduletemplate.RNModuleTemplatePackage
+***
+packages.add(RNModuleTemplatePackage())
+***
 ```
 
 ## How example project is linked
