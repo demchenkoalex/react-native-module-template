@@ -119,7 +119,7 @@ npm publish
 
 ℹ️ If you want to see what files will be included in your package before release run `npm pack`
 
-ℹ️ If you have native code in your library most of the time you will need `.kt`, `.swift` files, `project.pbxproj`, `AndroidManifest.xml` and `build.gradle` aside from TypeScript code and default stuff, so keep an eye on what you are publishing, some configuration/build folders or files might sneak in. Most of them (if not all) are ignored in [package.json](package.json).
+ℹ️ If you have native code in your library most of the time you will need `.kt`, `.h`/`.m`, `.swift` files, `project.pbxproj`, `AndroidManifest.xml` and `build.gradle` aside from TypeScript code and default stuff, so keep an eye on what you are publishing, some configuration/build folders or files might sneak in. Most of them (if not all) are ignored in [package.json](package.json).
 
 ## FAQ
 
