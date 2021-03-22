@@ -9,7 +9,7 @@
     "outDir": "./lib",
     "sourceMap": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ESNext",
   },
   "exclude": ["**/__tests__/*"],
   "include": ["src"]
