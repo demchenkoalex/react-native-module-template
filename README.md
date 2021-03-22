@@ -2,7 +2,11 @@
 
 A starter for the React Native library written in TypeScript, with linked example project and optional native code written in Swift and Kotlin. This project aims to support the latest React Native versions and keep best practices in mind.
 
+Are you looking for the project template? Check [react-native-better-template](https://github.com/demchenkoalex/react-native-better-template).
+
 ## Alternatives
+
+[react-native-builder-bob](https://github.com/callstack/react-native-builder-bob)
 
 [create-react-native-module](https://github.com/brodybits/create-react-native-module)
 

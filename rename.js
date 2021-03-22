@@ -139,7 +139,7 @@ const renameFiles = (
       const newIndexData = indexData
         .replace(
           new RegExp(
-            `\nexport default NativeModules.${DEFAULT_SHORT_NAME}\n`,
+            `\nexport default NativeModules.${DEFAULT_SHORT_NAME}Module\n`,
             'g'
           ),
           ''
@@ -150,8 +150,8 @@ const renameFiles = (
       // Remove native modules from `App.tsx`
       const appData = fs.readFileSync('example/src/App.tsx').toString()
       const newAppData = appData
-        .replace(`${DEFAULT_SHORT_NAME}, `, '')
-        .replace(DEFAULT_SHORT_NAME, "''")
+        .replace(`${DEFAULT_SHORT_NAME}Module, `, '')
+        .replace(`${DEFAULT_SHORT_NAME}Module`, "''")
         .replace(DEFAULT_NAME, name)
       fs.writeFileSync('example/src/App.tsx', newAppData)
 
@@ -175,64 +175,72 @@ const renameFiles = (
 
       // Rename and modify .xcscheme file
       fs.renameSync(
-        `ios/${DEFAULT_SHORT_NAME}.xcodeproj/xcshareddata/xcschemes/${DEFAULT_SHORT_NAME}.xcscheme`,
-        `ios/${DEFAULT_SHORT_NAME}.xcodeproj/xcshareddata/xcschemes/${shortName}.xcscheme`
+        `ios/${DEFAULT_SHORT_NAME}Module.xcodeproj/xcshareddata/xcschemes/${DEFAULT_SHORT_NAME}Module.xcscheme`,
+        `ios/${DEFAULT_SHORT_NAME}Module.xcodeproj/xcshareddata/xcschemes/${shortName}Module.xcscheme`
       )
       const schemeData = fs
         .readFileSync(
-          `ios/${DEFAULT_SHORT_NAME}.xcodeproj/xcshareddata/xcschemes/${shortName}.xcscheme`
+          `ios/${DEFAULT_SHORT_NAME}Module.xcodeproj/xcshareddata/xcschemes/${shortName}Module.xcscheme`
         )
         .toString()
       const newSchemeData = replaceDefaultShortName(schemeData, shortName)
       fs.writeFileSync(
-        `ios/${DEFAULT_SHORT_NAME}.xcodeproj/xcshareddata/xcschemes/${shortName}.xcscheme`,
+        `ios/${DEFAULT_SHORT_NAME}Module.xcodeproj/xcshareddata/xcschemes/${shortName}Module.xcscheme`,
         newSchemeData
       )
 
       // Rename .xcodeproj folder
       fs.renameSync(
-        `ios/${DEFAULT_SHORT_NAME}.xcodeproj`,
-        `ios/${shortName}.xcodeproj`
+        `ios/${DEFAULT_SHORT_NAME}Module.xcodeproj`,
+        `ios/${shortName}Module.xcodeproj`
       )
 
       // Modify `project.pbxproj`
       const projectData = fs
-        .readFileSync(`ios/${shortName}.xcodeproj/project.pbxproj`)
+        .readFileSync(`ios/${shortName}Module.xcodeproj/project.pbxproj`)
         .toString()
       const newProjectData = replaceDefaultShortName(
         projectData,
         shortName
       ).replace(DEFAULT_AUTHOR_NAME, authorName)
       fs.writeFileSync(
-        `ios/${shortName}.xcodeproj/project.pbxproj`,
+        `ios/${shortName}Module.xcodeproj/project.pbxproj`,
         newProjectData
       )
 
       // Rename and modify bridging header .h file
       fs.renameSync(
-        `ios/${DEFAULT_SHORT_NAME}-Bridging-Header.h`,
-        `ios/${shortName}-Bridging-Header.h`
+        `ios/${DEFAULT_SHORT_NAME}Module-Bridging-Header.h`,
+        `ios/${shortName}Module-Bridging-Header.h`
       )
 
       // Rename and modify .m file
-      fs.renameSync(`ios/${DEFAULT_SHORT_NAME}.m`, `ios/${shortName}.m`)
+      fs.renameSync(
+        `ios/${DEFAULT_SHORT_NAME}Module.m`,
+        `ios/${shortName}Module.m`
+      )
       const implementationData = fs
-        .readFileSync(`ios/${shortName}.m`)
+        .readFileSync(`ios/${shortName}Module.m`)
         .toString()
       const newImplementationData = replaceDefaultShortName(
         implementationData,
         shortName
       ).replace(DEFAULT_AUTHOR_NAME, authorName)
-      fs.writeFileSync(`ios/${shortName}.m`, newImplementationData)
+      fs.writeFileSync(`ios/${shortName}Module.m`, newImplementationData)
 
       // Rename and modify .swift file
-      fs.renameSync(`ios/${DEFAULT_SHORT_NAME}.swift`, `ios/${shortName}.swift`)
-      const swiftData = fs.readFileSync(`ios/${shortName}.swift`).toString()
+      fs.renameSync(
+        `ios/${DEFAULT_SHORT_NAME}Module.swift`,
+        `ios/${shortName}Module.swift`
+      )
+      const swiftData = fs
+        .readFileSync(`ios/${shortName}Module.swift`)
+        .toString()
       const newSwiftData = replaceDefaultShortName(
         swiftData,
         shortName
       ).replace(DEFAULT_AUTHOR_NAME, authorName)
-      fs.writeFileSync(`ios/${shortName}.swift`, newSwiftData)
+      fs.writeFileSync(`ios/${shortName}Module.swift`, newSwiftData)
 
       // Generate Android package name from auther and module names
       const androidPackageAuthorName = authorName
