@@ -186,7 +186,6 @@ android {
 
 dependencies {
     implementation project(':react-native-module-template')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
