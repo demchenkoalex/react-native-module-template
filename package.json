@@ -33,7 +33,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.10",
+    "@babel/core": "^7.16.12",
     "@babel/runtime": "^7.16.7",
     "@react-native-community/eslint-config": "^3.0.1",
     "@types/jest": "^27.4.0",
