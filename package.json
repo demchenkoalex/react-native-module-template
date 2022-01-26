@@ -43,7 +43,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^27.4.7",
-    "metro-react-native-babel-preset": "^0.66.2",
+    "metro-react-native-babel-preset": "^0.67.0",
     "react": "^17.0.2",
     "react-native": "^0.67.1",
     "react-test-renderer": "^17.0.2",
