@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA0EFF5F236CC8FB00069FA8"
-               BuildableName = "libRNModuleTemplateModule.a"
-               BlueprintName = "RNModuleTemplateModule"
-               ReferencedContainer = "container:RNModuleTemplateModule.xcodeproj">
+               BuildableName = "libRNProgressBarModule.a"
+               BlueprintName = "RNProgressBarModule"
+               ReferencedContainer = "container:RNProgressBarModule.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA0EFF5F236CC8FB00069FA8"
-            BuildableName = "libRNModuleTemplateModule.a"
-            BlueprintName = "RNModuleTemplateModule"
-            ReferencedContainer = "container:RNModuleTemplateModule.xcodeproj">
+            BuildableName = "libRNProgressBarModule.a"
+            BlueprintName = "RNProgressBarModule"
+            ReferencedContainer = "container:RNProgressBarModule.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

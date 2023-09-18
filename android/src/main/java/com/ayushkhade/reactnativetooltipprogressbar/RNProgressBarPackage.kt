@@ -1,11 +1,11 @@
-package com.alexdemchenko.reactnativemoduletemplate
+package com.ayushkhade.reactnativetooltipprogressbar
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
 
-class RNModuleTemplatePackage : ReactPackage {
+class RNProgressBarPackage : ReactPackage {
 
     override fun createViewManagers(reactContext: ReactApplicationContext):
             MutableList<ViewManager<*, *>> {
@@ -14,6 +14,6 @@ class RNModuleTemplatePackage : ReactPackage {
 
     override fun createNativeModules(reactContext: ReactApplicationContext):
             MutableList<NativeModule> {
-        return mutableListOf(RNModuleTemplateModule(reactContext))
+        return mutableListOf(RNProgressBarModule(reactContext))
     }
 }

@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default NativeModules.RNModuleTemplateModule
+export default NativeModules.RNProgressBarModule

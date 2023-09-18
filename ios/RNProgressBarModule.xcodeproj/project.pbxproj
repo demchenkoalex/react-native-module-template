@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA4F9FE82512AA42002DB4D5 /* RNModuleTemplateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F9FE72512AA42002DB4D5 /* RNModuleTemplateModule.swift */; };
-		FA4F9FEB2512ACC2002DB4D5 /* RNModuleTemplateModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4F9FEA2512ACC2002DB4D5 /* RNModuleTemplateModule.m */; };
+		FA4F9FE82512AA42002DB4D5 /* RNProgressBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F9FE72512AA42002DB4D5 /* RNProgressBarModule.swift */; };
+		FA4F9FEB2512ACC2002DB4D5 /* RNProgressBarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4F9FEA2512ACC2002DB4D5 /* RNProgressBarModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FA0EFF60236CC8FB00069FA8 /* libRNModuleTemplateModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNModuleTemplateModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA4F9FE62512AA41002DB4D5 /* RNModuleTemplateModule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNModuleTemplateModule-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA4F9FE72512AA42002DB4D5 /* RNModuleTemplateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNModuleTemplateModule.swift; sourceTree = "<group>"; };
-		FA4F9FEA2512ACC2002DB4D5 /* RNModuleTemplateModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNModuleTemplateModule.m; sourceTree = "<group>"; };
+		FA0EFF60236CC8FB00069FA8 /* libRNProgressBarModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNProgressBarModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA4F9FE62512AA41002DB4D5 /* RNProgressBarModule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNProgressBarModule-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA4F9FE72512AA42002DB4D5 /* RNProgressBarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNProgressBarModule.swift; sourceTree = "<group>"; };
+		FA4F9FEA2512ACC2002DB4D5 /* RNProgressBarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNProgressBarModule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +44,9 @@
 		FA0EFF57236CC8FB00069FA8 = {
 			isa = PBXGroup;
 			children = (
-				FA4F9FE62512AA41002DB4D5 /* RNModuleTemplateModule-Bridging-Header.h */,
-				FA4F9FEA2512ACC2002DB4D5 /* RNModuleTemplateModule.m */,
-				FA4F9FE72512AA42002DB4D5 /* RNModuleTemplateModule.swift */,
+				FA4F9FE62512AA41002DB4D5 /* RNProgressBarModule-Bridging-Header.h */,
+				FA4F9FEA2512ACC2002DB4D5 /* RNProgressBarModule.m */,
+				FA4F9FE72512AA42002DB4D5 /* RNProgressBarModule.swift */,
 				FA0EFF61236CC8FB00069FA8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,7 +54,7 @@
 		FA0EFF61236CC8FB00069FA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA0EFF60236CC8FB00069FA8 /* libRNModuleTemplateModule.a */,
+				FA0EFF60236CC8FB00069FA8 /* libRNProgressBarModule.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,9 +62,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA0EFF5F236CC8FB00069FA8 /* RNModuleTemplateModule */ = {
+		FA0EFF5F236CC8FB00069FA8 /* RNProgressBarModule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA0EFF69236CC8FB00069FA8 /* Build configuration list for PBXNativeTarget "RNModuleTemplateModule" */;
+			buildConfigurationList = FA0EFF69236CC8FB00069FA8 /* Build configuration list for PBXNativeTarget "RNProgressBarModule" */;
 			buildPhases = (
 				FA0EFF5C236CC8FB00069FA8 /* Sources */,
 				FA0EFF5D236CC8FB00069FA8 /* Frameworks */,
@@ -74,9 +74,9 @@
 			);
 			dependencies = (
 			);
-			name = RNModuleTemplateModule;
-			productName = RNModuleTemplateModule;
-			productReference = FA0EFF60236CC8FB00069FA8 /* libRNModuleTemplateModule.a */;
+			name = RNProgressBarModule;
+			productName = RNProgressBarModule;
+			productReference = FA0EFF60236CC8FB00069FA8 /* libRNProgressBarModule.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -86,7 +86,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1240;
-				ORGANIZATIONNAME = "Alex Demchenko";
+				ORGANIZATIONNAME = "Ayush Khade";
 				TargetAttributes = {
 					FA0EFF5F236CC8FB00069FA8 = {
 						CreatedOnToolsVersion = 11.1;
@@ -94,7 +94,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA0EFF5B236CC8FB00069FA8 /* Build configuration list for PBXProject "RNModuleTemplateModule" */;
+			buildConfigurationList = FA0EFF5B236CC8FB00069FA8 /* Build configuration list for PBXProject "RNProgressBarModule" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,7 +107,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA0EFF5F236CC8FB00069FA8 /* RNModuleTemplateModule */,
+				FA0EFF5F236CC8FB00069FA8 /* RNProgressBarModule */,
 			);
 		};
 /* End PBXProject section */
@@ -117,8 +117,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4F9FE82512AA42002DB4D5 /* RNModuleTemplateModule.swift in Sources */,
-				FA4F9FEB2512ACC2002DB4D5 /* RNModuleTemplateModule.m in Sources */,
+				FA4F9FE82512AA42002DB4D5 /* RNProgressBarModule.swift in Sources */,
+				FA4F9FEB2512ACC2002DB4D5 /* RNProgressBarModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +256,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNModuleTemplateModule-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RNProgressBarModule-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -281,7 +281,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNModuleTemplateModule-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RNProgressBarModule-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -290,7 +290,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA0EFF5B236CC8FB00069FA8 /* Build configuration list for PBXProject "RNModuleTemplateModule" */ = {
+		FA0EFF5B236CC8FB00069FA8 /* Build configuration list for PBXProject "RNProgressBarModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA0EFF67236CC8FB00069FA8 /* Debug */,
@@ -299,7 +299,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA0EFF69236CC8FB00069FA8 /* Build configuration list for PBXNativeTarget "RNModuleTemplateModule" */ = {
+		FA0EFF69236CC8FB00069FA8 /* Build configuration list for PBXNativeTarget "RNProgressBarModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA0EFF6A236CC8FB00069FA8 /* Debug */,
